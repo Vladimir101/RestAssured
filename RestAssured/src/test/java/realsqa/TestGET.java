@@ -14,9 +14,10 @@ class TestGET
 		baseURI = "http://api.zippopotam.us";
 		
 		given().
+		when().
 			get("/us/94404").
 		then().
-			statusCode(200).
+			statusCode(200). // the same as assertThat().statusCode(equalTo(200));
 			and().
 			body("places[0].'place name'", equalTo("San Mateo")).
 			and().
@@ -32,6 +33,7 @@ class TestGET
 		baseURI = "https://jsonplaceholder.typicode.com";
 		
 		given().
+		when().
 			get("/users").
 		then().
 			body("username", hasItems("Bret", "Samantha")).

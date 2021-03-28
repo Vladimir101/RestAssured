@@ -1,7 +1,5 @@
 package realsqa;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
