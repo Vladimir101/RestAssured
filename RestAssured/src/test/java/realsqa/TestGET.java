@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
+import io.restassured.http.ContentType;
 
 class TestGET
 {
@@ -36,8 +37,10 @@ class TestGET
 		when().
 			get("/users").
 		then().
+			contentType("application/json").  // the same as ContentType.JSON
 			body("username", hasItems("Bret", "Samantha")).
-			body("[7].username", equalTo("Maxime_Nienow"));
-		
+			body("username", hasItem("Delphine")).			
+			body("[7].username", equalTo("Maxime_Nienow")).
+			body("", hasSize(10));	
 	}
 }
