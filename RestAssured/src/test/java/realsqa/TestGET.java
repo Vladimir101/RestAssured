@@ -11,10 +11,9 @@ class TestGET
 {
 	@Test
 	void testZippopotam()
-	{
-		baseURI = "http://api.zippopotam.us";
-		
+	{		
 		given().
+			baseUri("http://api.zippopotam.us").
 		when().
 			get("/us/94404").
 		then().
