@@ -23,7 +23,6 @@ class TestPOST
 		var reqBody = new JSONObject();
 		reqBody.put("name", "Tony");
 		reqBody.put("relation", "son");
-//		System.out.println(reqBody.toString(4));
 		
 		given().
 			log().all().		// print request
@@ -34,8 +33,8 @@ class TestPOST
 			post("/post").
 		then().
 			statusCode(200).
+			statusLine("HTTP/1.1 200 OK").
 			body("json.name", equalTo("Tony")).
 			log().body(true);	// print response
-		
 	}
 }

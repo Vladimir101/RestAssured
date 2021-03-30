@@ -3,9 +3,7 @@ package realsqa;
 import static io.restassured.RestAssured.*;
 //import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
-
 import org.junit.jupiter.api.Test;
-import io.restassured.http.ContentType;
 
 class TestGET
 {
