@@ -9,7 +9,6 @@ import static org.hamcrest.Matchers.*;
 import org.json.JSONObject;
 
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 
 public class TestPUT
 {
@@ -24,17 +23,30 @@ public class TestPUT
 		reqBody.put("username", "admin");
 		reqBody.put("password", "password123");
 		
-		Response response = given().
+		token = given().
 			contentType(ContentType.JSON).
 			body(reqBody.toString()).
 		when().
 			post("/auth").
 		then().
-			statusCode(200).extract().response();
-
-		token = response.path("token");
+			statusCode(200).
+			extract().response().
+			path("token");
 	}
 	
+/*  PUT request body
+	{
+	    "firstname" : "James",
+	    "lastname" : "Brown",
+	    "totalprice" : 111,
+	    "depositpaid" : true,
+	    "bookingdates" : {
+	        "checkin" : "2018-01-01",
+	        "checkout" : "2019-01-01"
+	    },
+	    "additionalneeds" : "Breakfast"
+	} 
+*/
 	@Test
 	void testPUT()
 	{
