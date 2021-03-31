@@ -1,4 +1,4 @@
-package realsqa;
+package realsqa.tests;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;

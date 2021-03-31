@@ -1,4 +1,4 @@
-package realsqa;
+package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
 
@@ -67,7 +67,7 @@ public class TestPUT
 		given().
 			cookie("token", token).
 			contentType(ContentType.JSON).
-				body(reqBody.toString()).
+			body(reqBody.toString()).
 		when().
 			put("/booking/1").
 		then().

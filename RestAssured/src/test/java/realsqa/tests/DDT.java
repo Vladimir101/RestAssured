@@ -1,4 +1,4 @@
-package realsqa;
+package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;

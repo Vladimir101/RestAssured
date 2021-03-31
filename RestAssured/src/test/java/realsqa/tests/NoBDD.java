@@ -1,4 +1,4 @@
-package realsqa;
+package realsqa.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
