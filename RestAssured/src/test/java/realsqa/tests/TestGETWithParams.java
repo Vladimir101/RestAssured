@@ -1,7 +1,6 @@
 package realsqa.tests;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 

@@ -14,7 +14,7 @@ class TestGETWithPOJO extends BaseTest
 	@Test
 	void testWorldTime()
 	{
-// de-serializing response to POJO		
+// deserializing response to POJO		
 		TimezonePage response = 
 			given().
 				baseUri("http://worldtimeapi.org/api/timezone").
