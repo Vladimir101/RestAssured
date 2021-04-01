@@ -29,7 +29,7 @@ class TestPOST
 		reqBody.put("relation", "son");
 		
 		given().
-			log().all().		// print request
+			log().all().		
 			contentType(ContentType.JSON).
 			accept("application/json").
 			body(reqBody.toString()).
@@ -51,7 +51,7 @@ class TestPOST
 		relation.setRelation("mama");
 		
 		given().
-			log().all().		// print request
+			log().all().		
 			contentType(ContentType.JSON).
 			accept("application/json").
 			body(relation).
@@ -61,7 +61,7 @@ class TestPOST
 			statusCode(200).
 			statusLine("HTTP/1.1 200 OK").
 			body("json.name", equalTo("Sofya")).
-			log().body(true);	// print response
+			log().body(true);	
 	}
 	
 // POST body as a JSON file	
@@ -80,6 +80,6 @@ class TestPOST
 			statusCode(200).
 			statusLine("HTTP/1.1 200 OK").
 			body("json.name", equalTo("Boris")).
-			log().body(true);	// print response
+			log().body(true);	
 	}
 }

@@ -1,3 +1,6 @@
+// Using Hamcrest assertions
+// Documentation: 	1. http://api.zippopotam.us/
+// 					2. https://jsonplaceholder.typicode.com/
 package realsqa.tests;
 
 import static io.restassured.RestAssured.*;

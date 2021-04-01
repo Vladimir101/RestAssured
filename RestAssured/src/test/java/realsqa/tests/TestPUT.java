@@ -1,3 +1,4 @@
+// Documentation: https://restful-booker.herokuapp.com/apidoc/index.html
 package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
