@@ -16,7 +16,7 @@ class NoBDD
 		assertEquals(200, result.getStatusCode());
 		
 		System.out.println(result.getStatusLine());
-		System.out.println(result.getBody().asPrettyString());
+		System.out.println(result.getBody().asPrettyString()); // asString()
 		System.out.println(result.getHeader("Content-Type"));
 	}
 }

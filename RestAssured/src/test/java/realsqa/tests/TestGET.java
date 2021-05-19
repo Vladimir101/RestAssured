@@ -4,9 +4,9 @@
 package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
-//import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Test;
+// import io.restassured.http.ContentType;
 
 class TestGET
 {
@@ -18,14 +18,14 @@ class TestGET
 		when().
 			get("/us/94404").
 		then().
-			statusCode(200). // the same as assertThat().statusCode(equalTo(200));
+			statusCode(200). // the same as assertThat().statusCode(equalTo(200)).
 			and().
 			body("places[0].'place name'", equalTo("San Mateo")).
 			and().
 			body("places[0].state", equalTo("California")).
 			and().
 			body("'post code'", equalTo("94404")).
-			log().all();
+			log().all();  // prints the detailed response
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ class TestGET
 		when().
 			get("/users").
 		then().
-			contentType("application/json").  // the same as ContentType.JSON
+			contentType("application/json"). // the same as contentType(ContentType.JSON).
 			body("username", hasItems("Bret", "Samantha")).
 			body("username", hasItem("Delphine")).			
 			body("[7].username", equalTo("Maxime_Nienow")).
