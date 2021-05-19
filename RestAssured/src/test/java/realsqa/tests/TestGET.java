@@ -18,7 +18,7 @@ class TestGET
 		when().
 			get("/us/94404").
 		then().
-			statusCode(200). // the same as assertThat().statusCode(equalTo(200));
+			statusCode(200). // the same as assertThat().statusCode(equalTo(200)).
 			and().
 			body("places[0].'place name'", equalTo("San Mateo")).
 			and().
@@ -37,7 +37,7 @@ class TestGET
 		when().
 			get("/users").
 		then().
-			contentType("application/json").  // the same as ContentType.JSON
+			contentType("application/json").  // the same as contentType(ContentType.JSON)
 			body("username", hasItems("Bret", "Samantha")).
 			body("username", hasItem("Delphine")).			
 			body("[7].username", equalTo("Maxime_Nienow")).
