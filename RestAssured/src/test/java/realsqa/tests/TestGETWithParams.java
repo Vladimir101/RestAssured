@@ -4,9 +4,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
 
-import realsqa.common.BaseTest;
-
-class TestGETWithParams extends BaseTest
+class TestGETWithParams
 {
 	@Test
 	void test()
@@ -18,6 +16,7 @@ class TestGETWithParams extends BaseTest
 		when().
 			get().
 		then().
-			body("", hasSize(5));
+			body("", hasSize(5)).
+			log().body();
 	}
 }
