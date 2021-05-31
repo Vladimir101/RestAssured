@@ -2,18 +2,18 @@
 package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
 import static org.hamcrest.Matchers.*;
-import org.json.JSONObject;
+import org.junit.jupiter.api.*;
 
+import java.util.Base64;
+import org.json.JSONObject;
 import io.restassured.http.ContentType;
 
 public class TestPUT
 {
 	private static String token;
+	private static String username = "admin";
+	private static String password = "password123";
 	
 	@BeforeAll
 	static void getAuthToken()
@@ -21,8 +21,8 @@ public class TestPUT
 		baseURI = "https://restful-booker.herokuapp.com";
 		
 		var reqBody = new JSONObject();
-		reqBody.put("username", "admin");
-		reqBody.put("password", "password123");
+		reqBody.put("username", username);
+		reqBody.put("password", password);
 		
 		token = given().
 			contentType(ContentType.JSON).
@@ -33,6 +33,8 @@ public class TestPUT
 			statusCode(200).
 			extract().response().
 			path("token");
+		
+		System.out.println("The token is " + token);
 	}
 	
 /*  PUT request body
@@ -51,6 +53,8 @@ public class TestPUT
 	@Test
 	void testPUT()
 	{
+		String basicAuth = username + ":" + password;
+		
 		var reqBody = new JSONObject();
 		reqBody.put("firstname", "Tony");
 		reqBody.put("lastname", "B");
@@ -63,12 +67,13 @@ public class TestPUT
 		bookingDates.put("checkout", "2016-10-31");
 		reqBody.put("bookingdates", bookingDates);
 		
-		System.out.println(reqBody.toString());
-		
-		given().
+		given().			
+//			header("Authorization", "Basic " + 
+//				Base64.getEncoder().encodeToString(basicAuth.getBytes())).
 			cookie("token", token).
 			contentType(ContentType.JSON).
 			body(reqBody.toString()).
+			log().all().
 		when().
 			put("/booking/1").
 		then().
