@@ -20,12 +20,13 @@ class TestGET
 		then().
 			statusCode(200). // the same as assertThat().statusCode(equalTo(200)).
 			and().
-			body("places[0].'place name'", equalTo("San Mateo")).
+			body("places[0].'place name'", equalTo("San Mateo")).  // x.places[0]["state abbreviation"]
 			and().
-			body("places[0].state", equalTo("California")).
+			body("places[0].state", equalTo("California")).   // "places[0].'place name'"
 			and().
-			body("'post code'", equalTo("94404")).
+			body("'post code'", equalTo("94404")).  
 			log().all();  // prints the detailed response
+						  // you can also use log.body();
 	}
 	
 	@Test
@@ -41,6 +42,7 @@ class TestGET
 			body("username", hasItems("Bret", "Samantha")).
 			body("username", hasItem("Delphine")).			
 			body("[7].username", equalTo("Maxime_Nienow")).
-			body("", hasSize(10));	
+			body("", hasSize(10)).
+			log().body();	
 	}
 }

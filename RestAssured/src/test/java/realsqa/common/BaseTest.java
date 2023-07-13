@@ -11,19 +11,24 @@ import io.restassured.specification.ResponseSpecification;
 public class BaseTest
 {
 	protected static RequestSpecification requestSpec;
+	protected static RequestSpecification requestSpec2;
 	protected static ResponseSpecification responseSpec;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception
 	{
 		requestSpec = new RequestSpecBuilder().
-				setContentType(ContentType.JSON).
 				setAccept(ContentType.JSON).
 	            build();
 		
-       responseSpec = new ResponseSpecBuilder().
+		requestSpec2 = new RequestSpecBuilder().
+				setContentType(ContentType.JSON).
+				setAccept(ContentType.JSON).
+	            build();
+
+        responseSpec = new ResponseSpecBuilder().
                expectStatusCode(200).
-               expectContentType(ContentType.JSON).
+               expectContentType(ContentType.JSON).  // "text/html"
                build();
 	}
 }

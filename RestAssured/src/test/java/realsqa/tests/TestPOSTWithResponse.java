@@ -19,7 +19,7 @@ class TestPOSTWithResponse extends BaseTest
 		
 		Response result =
 			given().
-				spec(requestSpec).
+				spec(requestSpec2).
 				baseUri("http://httpbin.org").
 				basePath("/post").
 				body(order).

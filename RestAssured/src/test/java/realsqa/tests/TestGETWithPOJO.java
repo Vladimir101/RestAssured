@@ -17,13 +17,13 @@ class TestGETWithPOJO extends BaseTest
 	{
 // deserializing response to POJO		
 		TimezonePage response = 
-			given().
+				given(requestSpec).   // spec is inside given()
 				baseUri("http://worldtimeapi.org/api/timezone").
 			when().
 				get("/America/Los_Angeles").
 				as(TimezonePage.class);
 		
-		assertThat(response.getAbbreviation(), equalTo("PDT"));
+		assertThat(response.getAbbreviation(), equalTo("PST"));
 		assertThat(response.getTimezone(), equalTo("America/Los_Angeles"));
 	}
 }

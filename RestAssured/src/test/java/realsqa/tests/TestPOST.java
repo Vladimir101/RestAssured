@@ -1,16 +1,12 @@
 package realsqa.tests;
 
 import org.json.JSONObject;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.*;
 import io.restassured.http.ContentType;
 import realsqa.reqbodies.Relation;
-
+import java.io.File;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
-
-import java.io.File;
 
 class TestPOST
 {
@@ -38,8 +34,8 @@ class TestPOST
 		then().
 			statusCode(200).
 			statusLine("HTTP/1.1 200 OK").
-			body("json.name", equalTo("Tony")).
-			log().body(true);	// print response
+			body("json.name", equalTo("Tony"));
+//			log().body();	
 	}
 
 // POST body as a POJO	

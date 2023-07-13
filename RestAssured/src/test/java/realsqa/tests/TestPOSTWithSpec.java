@@ -27,7 +27,7 @@ class TestPOSTWithSpec extends BaseTest
 		order.setOrderID("123");
 		
 		given().
-			spec(requestSpec).		// the same, as given(requestSpec). 
+			spec(requestSpec2).		// the same, as given(requestSpec). 
         	baseUri("http://httpbin.org").
         	body(order).
         when().

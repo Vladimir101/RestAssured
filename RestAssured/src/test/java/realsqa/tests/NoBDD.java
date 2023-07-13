@@ -1,20 +1,20 @@
 package realsqa.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
-import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 class NoBDD
 {
 	@Test
 	void testZipCode()
 	{
-		Response result = RestAssured.get("http://api.zippopotam.us/us/94404");
-		assertEquals(200, result.getStatusCode());
-		
+		Response result = get("http://api.zippopotam.us/us/94404");		
+		assertThat(result.getStatusCode(), is(equalTo(200)));
+
 		System.out.println(result.getStatusLine());
 		System.out.println(result.getBody().asPrettyString()); // asString()
 		System.out.println(result.getHeader("Content-Type"));

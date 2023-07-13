@@ -6,8 +6,8 @@ public class TimezonePage
 	private String utc_offset;
 	private String unixtime;	
 	private String timezone;	
-	private String dst_until = null; 
-	private String dst_from = null;	
+	private String dst_until;
+	private String dst_from;	
 	private boolean dst;	
 	private float day_of_year;	
 	private float day_of_week;	
