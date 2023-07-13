@@ -1,6 +1,6 @@
 // Using Hamcrest assertions
 // Documentation: 	1. http://api.zippopotam.us/
-// 					2. https://jsonplaceholder.typicode.com/
+// 			2. https://jsonplaceholder.typicode.com/
 package realsqa.tests;
 
 import static io.restassured.RestAssured.*;
@@ -38,6 +38,7 @@ class TestGET
 		when().
 			get("/users").
 		then().
+
 			contentType("application/json"). // the same as contentType(ContentType.JSON).
 			body("username", hasItems("Bret", "Samantha")).
 			body("username", hasItem("Delphine")).			

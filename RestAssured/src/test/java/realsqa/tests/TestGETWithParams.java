@@ -4,7 +4,6 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
-
 // https://jsonplaceholder.typicode.com/comments?postId=6
 
 class TestGETWithParams 
